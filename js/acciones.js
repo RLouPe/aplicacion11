@@ -35,14 +35,15 @@ $(document).ready(function(e)
 			  alert ("error en la Base de Datos; " + err.message);
 			  return false;
 		  }
-		$("#insertar").bind("click", function( event)
+		  
+		$("#insertar").bind("click", function(event)
 		{
-			var v_nombre = $("#nombre").val();
-			var v_apellido = $("#apellido").val();
-			db.transaction(function (ejecutar)
+			var v_nombre = $("#Nombre").val();
+			var v_apellido = $("#Apellido").val();
+			db.transaction (function (ejecutar)
 			{
 				var sql = "INSERT INTO Clientes (nombre, apellido) VALUES (?, ?)";
-				ejecutar.executeSql (sql, [v_nombre, V_apellido], function ()
+				ejecutar.executeSql (sql, [v_nombre, v_apellido], function ()
 				{
 					alert ("Cliente Agregado")
 				},error);
